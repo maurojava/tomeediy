@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tomee>
+	<!-- see http://tomee.apache.org/containers-and-resources.html -->
+	<!-- activate next line to be able to deploy applications in apps -->
+	<Deployments dir="apps" />
+		
+		
+	<Resource id="jdbc/MySQLDS" type="DataSource">
+		JdbcDriver = com.mysql.jdbc.Driver
+		JdbcUrl =jdbc:mysql://${OPENSHIFT_MYSQL_DB_HOST}:${OPENSHIFT_MYSQL_DB_PORT}/${OPENSHIFT_APP_NAME}
+		UserName = ${OPENSHIFT_MYSQL_DB_USERNAME}
+		Password = ${OPENSHIFT_MYSQL_DB_PASSWORD}
+		JtaManaged = true
+	</Resource>
+
+	<Resource id="jdbc/MySQLDSUnmanaged" type="DataSource">
+		JdbcDriver = com.mysql.jdbc.Driver
+		JdbcUrl =jdbc:mysql://${OPENSHIFT_MYSQL_DB_HOST}:${OPENSHIFT_MYSQL_DB_PORT}/${OPENSHIFT_APP_NAME}
+		UserName = ${OPENSHIFT_MYSQL_DB_USERNAME}
+		Password = ${OPENSHIFT_MYSQL_DB_PASSWORD}
+		JtaManaged = false
+	</Resource>
+</tomee>
+
