@@ -17,6 +17,7 @@
 
 <Server address="OPENSHIFT_DIY_IP" port="15005" shutdown="SHUTDOWN"> 
 
+
 	<!-- ********************************************************************************** -->
 
 	<!-- TomEE plugin for Tomcat -->
