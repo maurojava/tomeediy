@@ -2,8 +2,6 @@
 # The logic to start up your application should be put in this
 # script. The application will work only if it binds to
 # $OPENSHIFT_DIY_IP:8080
-
-#da qui modifiche
 set -x
 rsync -r --delete --exclude ".*" ${OPENSHIFT_REPO_DIR}/diy/tomee/conf/ ${OPENSHIFT_DATA_DIR}/tomee/conf/
 rsync -r --delete --exclude ".*" ${OPENSHIFT_REPO_DIR}/diy/tomee/lib/ ${OPENSHIFT_DATA_DIR}/tomee/lib/
@@ -12,5 +10,4 @@ rsync -r --delete --exclude ".*" ${OPENSHIFT_REPO_DIR}/diy/tomee/apps/ ${OPENSHI
 cd $OPENSHIFT_DATA_DIR/tomee
 sed -ig 's/OPENSHIFT_DIY_IP/'$OPENSHIFT_DIY_IP'/g' conf/server.xml
 sed -ig 's/OPENSHIFT_APP_DNS/'$OPENSHIFT_APP_DNS'/' conf/server.xml
-cd $OPENSHIFT_DATA_DIR/tomee/bin
-sh startup.sh
+bin/startup.sh
